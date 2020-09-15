@@ -1,4 +1,9 @@
 {% extends "accounts/layout.html" %}
+{% load static %}
+
+{% block head %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+{% endblock %}
 
 {% block content %}
 
@@ -33,4 +38,5 @@
         </div>
     </div>
 </div>
+{% include "accounts/script_ajax_signupcheck.html" %}
 {% endblock%}

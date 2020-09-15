@@ -1,9 +1,11 @@
-{% extends "post/latyout.html" %}
+{% extends "post/layout.html" %}
 {% load static %}
 
 {% block head %}
 <link rel="stylesheet" href="{% static 'css/new_post.css' %}">
 {% endblock %}
+
+
 
 {% block content %}
 <div id="main_container">
@@ -16,7 +18,7 @@
                 <div class="upload">
                     <div class="post_btn">
                         {% if post %}
-                            <p><img id="img_id" src="{{ post.photo.url }}" style="width: 300px; height: 300px; object-fit: cover"></p>
+                            <p><img id="img_id" src="{{ post.photo.url }}" style="width: 300px; height: 300px; object-fit: cover" ></p>
                         {% endif %}
                     </div>
                 </div>
@@ -34,19 +36,20 @@
     document.querySelector('#photo-clear_id').remove();
     document.querySelector("label[for='photo-clear_id']").remove();
     
+    
     function upload_img(input) {
         var reader = new FileReader();
-        if(input.files && input.files[0]){
+        if (input.files && input.files[0]){
             reader.onload = function (e) {
-                photo.setAttribute('src',e.target.result);
+            photo.setAttribute('src',e.target.result);
             }
-            reader.readAsdataURL(input.files[0]);
+            reader.readAsDataURL(input.files[0]);
         }
     }
-    
+
     let idPhoto = document.querySelector('#id_photo');
     
-    idPhoto.addEventListener('change', function(){
+    idPhoto.addEventListener('change',function(){
         upload_img(this);
     });
 </script>
