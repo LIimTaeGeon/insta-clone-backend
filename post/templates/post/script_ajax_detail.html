@@ -23,7 +23,7 @@
             
             $.ajax({
                 type: "POST",
-                url: "{% url 'accounts:follow' %}",
+                url: {% url 'accounts:follow' %}",
                 data: {
                     'pk': pk,
                     'csrfmiddlewaretoken': '{{ csrf_token }}',
